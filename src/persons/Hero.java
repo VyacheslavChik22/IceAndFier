@@ -1,17 +1,20 @@
-public abstract class Hero{
-    String name;
+package persons;
+
+public abstract class Hero {
     String status;
-    int healthMax;       // Максимальное здоровье
+    String name;
+    int health;          // Здоровье
     int armor;           // Броня
     int fightingSpirit;  // Боевой дух
     int experience;      // Опыт
 
-    public Hero(String name, String status, int healthMax, int armor, int fightingSpirit, int experience) {
-//       this.name = name;
-//       this.status = status;
-        this.healthMax = healthMax;
+    public Hero(String status, String name, int health, int armor, int fightingSpirit, int experience) {
+        this.status = status;
+        this.name = name;
+        this.health = health;
         this.armor = armor;
         this.fightingSpirit = fightingSpirit;
         this.experience = experience;
     }
+
 }
