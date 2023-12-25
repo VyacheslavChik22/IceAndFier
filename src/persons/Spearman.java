@@ -14,8 +14,8 @@ public class Spearman extends Hero implements AbleToTellTheName, AbleToScreaming
     int force;         //сила
     int[] damage;        // Наносимый урон
 
-    public Spearman(String name) {
-        super("Копейщик ", name, 100, 15, 50, 0);
+    public Spearman(String name, int x, int y) {
+        super("Копейщик ", name, 100, 15, 50, 0, x, y);
         this.force = 10;
         this.stepFront = 1;
         this.stepBack = 1;
@@ -23,6 +23,8 @@ public class Spearman extends Hero implements AbleToTellTheName, AbleToScreaming
         this.stepRight = 1;
         this.damage = new int[]{-20, -5};
     }
+
+    Rangefinder position;
 
     @Override
     public void toGo() {

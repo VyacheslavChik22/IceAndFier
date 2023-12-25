@@ -13,8 +13,8 @@ public class Robber extends Hero implements AbleToTellTheName, AbleToScreamingBa
     int force;         //сила
     int[] damage;        // Наносимый урон
 
-    public Robber(String name) {
-        super("Разбойник ", name, 100, 15, 50, 0);
+    public Robber(String name, int x, int y) {
+        super("Разбойник ", name, 100, 15, 50, 0, x, y);
         this.force = 10;
         this.stepFront = 1;
         this.stepBack = 1;
@@ -22,6 +22,8 @@ public class Robber extends Hero implements AbleToTellTheName, AbleToScreamingBa
         this.stepRight = 1;
         this.damage = new int[]{-20, -5};
     }
+
+    Rangefinder position;
 
     @Override
     public void toGo() {

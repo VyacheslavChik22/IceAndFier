@@ -7,13 +7,16 @@ import interfaces.*;
 public class Arbalester extends Hero implements AbleToTellTheName, AbleToScreamingBattleCry, AbleToAttack {
 
     int[] damage;       // Наносимый урон
-    int amountArrows;  // количество стрел
+    int amountArrows;   // количество стрел
 
-    public Arbalester(String name) {
-        super("Арбалетчик ", name, 100, 15, 50, 0);
+
+    public Arbalester(String name, int x, int y) {
+        super("Арбалетчик ", name, 100, 15, 50, 0, x, y);
         this.amountArrows = 10;
         this.damage = new int[]{-20, -15};
     }
+
+    Rangefinder position;
 
     @Override
     public void toAttack() {
@@ -29,6 +32,7 @@ public class Arbalester extends Hero implements AbleToTellTheName, AbleToScreami
     public void toScreamBattleCry() {
         System.out.println("Вот ты и попался!!!");
     }
+
 
     @Override
     public String toString() {

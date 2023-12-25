@@ -8,11 +8,12 @@ import interfaces.*;
 public class Wizard extends Hero implements AbleToTellTheName, AbleToScreamingBattleCry, AbleToHeal, AbleToCauseFear {
     int manna;
 
-    public Wizard(String name) {
-        super("Колдун ", name, 80, 5, 5, 0);
+    public Wizard(String name, int x, int y) {
+        super("Колдун ", name, 80, 5, 5, 0, x, y);
         this.manna = 1000;
     }
 
+    Rangefinder position;
 
     @Override
     public String toString() {

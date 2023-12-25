@@ -5,9 +5,11 @@ import interfaces.*;
 //Крестьянин
 //Подбрасывает стрелы снайперам и арбалетчикам
 public class Peasant extends Hero implements AbleToTellTheName, AbleToScreamingBattleCry, AbleToGiveArrows {
-    public Peasant(String name) {
-        super("Крестьянин ", name, 10, 3, 3, 0);
+    public Peasant(String name, int x, int y) {
+        super("Крестьянин ", name, 10, 3, 3, 0, x, y);
     }
+
+    Rangefinder position;
 
     @Override
     public void bringArrows() {

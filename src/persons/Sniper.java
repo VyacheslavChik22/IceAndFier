@@ -11,12 +11,14 @@ public class Sniper extends Hero implements AbleToTellTheName, AbleToScreamingBa
     int secretiveness; // скрытность
     int amountArrows;  // количество стрел
 
-    public Sniper(String name) {
-        super("Снайпер ", name, 100, 15, 50, 0);
+    public Sniper(String name, int x, int y) {
+        super("Снайпер ", name, 100, 15, 50, 0, x, y);
         this.secretiveness = 1;
         this.amountArrows = 10;
         this.damage = new int[]{-25, 15};
     }
+
+    Rangefinder position;
 
     @Override
     public void toHide() {

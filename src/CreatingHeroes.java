@@ -1,3 +1,4 @@
+import persons.Hero;
 import enums.Names;
 import persons.*;
 
@@ -13,32 +14,32 @@ public class CreatingHeroes {
         return Names.values()[new Random().nextInt(Names.values().length - 1)].name();
     }
 
-    static List<Hero> generatingHeroesCommands(int n) {
+    static List<Hero> generatingHeroesCommands(int n, int y) {
         List<Hero> commandHeroes = new ArrayList<>();
         int rand;
         for (int i = 0; i < 10; i++) {
             rand = (int) (1 + Math.random() * 4) + n;
             switch (rand) {
                 case 1:
-                    commandHeroes.add(new Arbalester(getRandomName()));
+                    commandHeroes.add(new Arbalester(getRandomName(), i, y));
                     break;
                 case 2:
-                    commandHeroes.add(new Monastic(getRandomName()));
+                    commandHeroes.add(new Monastic(getRandomName(), i, y));
                     break;
                 case 3:
-                    commandHeroes.add(new Robber(getRandomName()));
+                    commandHeroes.add(new Robber(getRandomName(), i, y));
                     break;
                 case 4:
-                    commandHeroes.add(new Peasant(getRandomName()));
+                    commandHeroes.add(new Peasant(getRandomName(), i, y));
                     break;
                 case 5:
-                    commandHeroes.add(new Sniper(getRandomName()));
+                    commandHeroes.add(new Sniper(getRandomName(), i, y));
                     break;
                 case 6:
-                    commandHeroes.add(new Spearman(getRandomName()));
+                    commandHeroes.add(new Spearman(getRandomName(), i, y));
                     break;
                 case 7:
-                    commandHeroes.add(new Wizard(getRandomName()));
+                    commandHeroes.add(new Wizard(getRandomName(), i, y));
                     break;
             }
         }

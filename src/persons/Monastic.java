@@ -8,10 +8,12 @@ import interfaces.*;
 public class Monastic extends Hero implements AbleToTellTheName, AbleToScreamingBattleCry, AbleToHeal {
     int manna;
 
-    public Monastic(String name) {
-        super("Монах ", name, 100, 2, 10, 0);
+    public Monastic(String name, int x, int y) {
+        super("Монах ", name, 100, 2, 10, 0, x, y);
         this.manna = 1000;
     }
+
+    Rangefinder position;
 
     @Override
     public void toHeal() {
