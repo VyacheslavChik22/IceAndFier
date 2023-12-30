@@ -6,18 +6,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-//Арбалетчик
-//Умеет стрелять, стрелы ограничены, не перемещается.
-public class Arbalester extends Hero implements AbleToTellTheName, AbleToScreamingBattleCry, AbleToAttack {
+//Снайпер
+//Не перемещается, наносит повреждения удаленным юнитам
+//Стрелы заканчиваются(имеет определенный запас)
+//Дополнительный параметр - скрытность
+public class Archer extends Hero implements AbleToTellTheName, AbleToScreamingBattleCry, AbleToAttack, AbleToWalk, AbleToHiding {
+    int[] damage;      // Наносимый урон
+    int secretiveness; // скрытность
+    int amountArrows;  // количество стрел
 
-    int[] damage;       // Наносимый урон
-    int amountArrows;   // количество стрел
-
-
-    public Arbalester(String name, int x, int y) {
-        super("Арбалетчик", name, 100, 15, 50, 0, x, y);
+    public Archer(String name, int x, int y) {
+        super("Лучник", name, 100, 15, 50, 0, x, y);
+        this.secretiveness = 1;
         this.amountArrows = 10;
-        this.damage = new int[]{-20, -15};
+        this.damage = new int[]{-25, 15};
     }
 
     public void showDistanceToEnemies(List<Hero> enemies) {
@@ -32,6 +34,16 @@ public class Arbalester extends Hero implements AbleToTellTheName, AbleToScreami
     }
 
     @Override
+    public void toHide() {
+
+    }
+
+    @Override
+    public void toGo() {
+
+    }
+
+    @Override
     public void toAttack() {
 
     }
@@ -43,7 +55,7 @@ public class Arbalester extends Hero implements AbleToTellTheName, AbleToScreami
 
     @Override
     public void toScreamBattleCry() {
-        System.out.println("Вот ты и попался!!!");
+        System.out.println("Я не промахнусь!!!");
     }
 
     @Override
@@ -56,7 +68,6 @@ public class Arbalester extends Hero implements AbleToTellTheName, AbleToScreami
 //        return status + " " + name
 //                + ", Здоровье: " + health + ", Броня: " + armor
 //                + ", Боевой дух: " + fightingSpirit + ", Опыт: " + experience
-//                + ", Количество стрел: " + amountArrows;
+//                + ", Скрытность: " + secretiveness + ", Количество стрел: " + amountArrows;
 //    }
-
 }

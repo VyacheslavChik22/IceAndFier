@@ -9,8 +9,6 @@ public class Peasant extends Hero implements AbleToTellTheName, AbleToScreamingB
         super("Крестьянин ", name, 10, 3, 3, 0, x, y);
     }
 
-    Rangefinder position;
-
     @Override
     public void bringArrows() {
 

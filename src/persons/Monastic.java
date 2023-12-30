@@ -13,7 +13,6 @@ public class Monastic extends Hero implements AbleToTellTheName, AbleToScreaming
         this.manna = 1000;
     }
 
-    Rangefinder position;
 
     @Override
     public void toHeal() {

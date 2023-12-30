@@ -9,7 +9,6 @@ public abstract class Hero {
     int armor;           // Броня
     int fightingSpirit;  // Боевой дух
     int experience;      // Опыт
-
     Rangefinder position;
 
     public Hero(String status, String name, int health, int armor, int fightingSpirit, int experience, int x, int y) {
@@ -21,10 +20,5 @@ public abstract class Hero {
         this.experience = experience;
         this.position = new Rangefinder(x, y);
 
-    }
-
-    public void showDistanceToEnemies(List<Hero> enemies) {
-        enemies.forEach(n -> System.out.print(position.rangeToEnemy(n.position) + "\\ "));
-        System.out.println();
     }
 }

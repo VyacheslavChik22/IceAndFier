@@ -13,7 +13,6 @@ public class Wizard extends Hero implements AbleToTellTheName, AbleToScreamingBa
         this.manna = 1000;
     }
 
-    Rangefinder position;
 
     @Override
     public String toString() {

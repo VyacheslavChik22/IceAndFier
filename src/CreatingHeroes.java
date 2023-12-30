@@ -33,7 +33,7 @@ public class CreatingHeroes {
                     commandHeroes.add(new Peasant(getRandomName(), i, y));
                     break;
                 case 5:
-                    commandHeroes.add(new Sniper(getRandomName(), i, y));
+                    commandHeroes.add(new Archer(getRandomName(), i, y));
                     break;
                 case 6:
                     commandHeroes.add(new Spearman(getRandomName(), i, y));
