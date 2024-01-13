@@ -1,43 +1,22 @@
 package persons;
 
+import abstracts.WarriorOfMagic;
 import interfaces.*;
 
 //Колдун
-//Лечит, не перемещается, манна не ограничена
-//Колдует на противников вызывая у них страх
-public class Wizard extends Hero implements AbleToTellTheName, AbleToScreamingBattleCry, AbleToHeal, AbleToCauseFear {
-    int manna;
+//Лечит, не перемещается, есть манна для лечения и колдовства.
+//Колдует на противников вызывая у них страх, чем снижает их боевой дух.
+public class Wizard extends WarriorOfMagic {
+
 
     public Wizard(String name, int x, int y) {
-        super("Колдун ", name, 80, 5, 5, 0, x, y);
-        this.manna = 1000;
-    }
+        super("Колдун ", name, 100,15, 50, 5, 50, x, y);
 
+    }
 
     @Override
     public String toString() {
-        return status + " " + name
-                + ", Здоровье: " + health + ", Защита: " + armor
-                + ", Боевой дух: " + fightingSpirit + ", Опыт: " + experience;
+        return super.toString();
     }
 
-    @Override
-    public void toCauseFear() {
-
-    }
-
-    @Override
-    public void toHeal() {
-
-    }
-
-    @Override
-    public void SaysName() {
-        System.out.println("Я есть " + name + " !!!");
-    }
-
-    @Override
-    public void toScreamBattleCry() {
-        System.out.println("Ты не пройдешь!!!");
-    }
 }

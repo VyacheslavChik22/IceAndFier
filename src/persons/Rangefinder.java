@@ -12,4 +12,9 @@ public class Rangefinder {
     public float rangeToEnemy(Rangefinder positionEnemy) {
         return (float) Math.sqrt(Math.pow(positionEnemy.x - x, 2) + Math.pow(positionEnemy.y - y, 2));
     }
+
+    @Override
+    public String toString() {
+        return "Кординаты: " + x + " : " + y ;
+    }
 }

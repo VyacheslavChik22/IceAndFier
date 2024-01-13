@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.Random;
 
 public class CreatingHeroes {
-    static List<Hero> heroesIce = new ArrayList<>();
-    static List<Hero> heroesFire = new ArrayList<>();
+    static ArrayList<Hero> heroesIce = new ArrayList<>();
+    static ArrayList<Hero> heroesFire = new ArrayList<>();
 
     static String getRandomName() {
         return Names.values()[new Random().nextInt(Names.values().length - 1)].name();
     }
 
-    static List<Hero> generatingHeroesCommands(int n, int y) {
-        List<Hero> commandHeroes = new ArrayList<>();
+    static ArrayList<Hero> generatingHeroesCommands(int n, int y) {
+        ArrayList<Hero> commandHeroes = new ArrayList<>();
         int rand;
         for (int i = 0; i < 10; i++) {
             rand = (int) (1 + Math.random() * 4) + n;

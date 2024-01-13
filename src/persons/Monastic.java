@@ -1,41 +1,22 @@
 package persons;
 
+import abstracts.WarriorOfMagic;
 import interfaces.*;
 
 //Монах
-//Лечит, не перемещается, манна не ограничена
-//Повышает боевой дух
-public class Monastic extends Hero implements AbleToTellTheName, AbleToScreamingBattleCry, AbleToHeal {
-    int manna;
+//Лечит, не перемещается, есть манна для лечения и колдовства.
+//Колдует на противников вызывая у них страх, чем снижает их боевой дух.
+public class Monastic extends WarriorOfMagic {
+
 
     public Monastic(String name, int x, int y) {
-        super("Монах ", name, 100, 2, 10, 0, x, y);
-        this.manna = 1000;
-    }
-
-
-    @Override
-    public void toHeal() {
-
-    }
-
-    @Override
-    public void SaysName() {
-        System.out.println("Я есть " + name + " !!!");
-
-    }
-
-    @Override
-    public void toScreamBattleCry() {
-        System.out.println("И тебя вылечат!!!");
+        super("Монах ", name, 100, 15, 50, 5, 50, x, y);
     }
 
 
     @Override
     public String toString() {
-        return status + " " + name
-                + ", Здоровье: " + health + ", Защита: " + armor
-                + ", Боевой дух: " + fightingSpirit + ", Опыт: " + experience;
+        return super.toString();
     }
 
 }
