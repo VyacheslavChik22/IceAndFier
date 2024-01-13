@@ -15,7 +15,6 @@ public class Peasant extends Hero {
         initiative = 0;
     }
 
-
     @Override
     public void stepOfAction(ArrayList<Hero> enemies) {
         System.out.print(" ");
@@ -28,6 +27,4 @@ public class Peasant extends Hero {
                 + ", Боевой дух: " + fightingSpirit + ", Опыт: " + experience
                 + ", Количство стрел: " + amountArrows;
     }
-
-
 }

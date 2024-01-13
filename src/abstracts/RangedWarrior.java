@@ -1,7 +1,6 @@
 package abstracts;
 
 import persons.Hero;
-
 import java.util.ArrayList;
 import java.util.Collections;
 

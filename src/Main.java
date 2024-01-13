@@ -1,5 +1,4 @@
 import persons.Arbalester;
-import persons.Archer;
 import persons.Hero;
 
 import java.util.ArrayList;
@@ -17,7 +16,6 @@ public class Main {
 //        System.out.println("\tВоины льда:");
 //        CreatingHeroes.heroesIce.forEach(n -> System.out.println(n.toString()));
 
-
         ArrayList<Hero> heroesList = new ArrayList<>();
         heroesList.addAll(CreatingHeroes.heroesFire);
         heroesList.addAll(CreatingHeroes.heroesIce);
@@ -31,13 +29,11 @@ public class Main {
         heroesList.forEach(n -> System.out.println(n.getInitiative()));
 
 
-
         for (Hero heroFire : CreatingHeroes.heroesFire) {
             if (heroFire.toString().split(" ")[0].equals("Арбалетчик")) {
                 System.out.println("У арбалетчика " + ((Arbalester) heroFire).getName() + " ближайшая цель: ");
                 heroFire.stepOfAction(CreatingHeroes.heroesIce);
             }
         }
-
     }
 }

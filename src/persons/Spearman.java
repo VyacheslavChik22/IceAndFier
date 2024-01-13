@@ -21,5 +21,4 @@ public class Spearman extends MeleeWarrior {
     public String toString() {
         return super.toString();
     }
-
 }

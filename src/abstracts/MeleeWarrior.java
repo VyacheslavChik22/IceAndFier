@@ -1,7 +1,6 @@
 package abstracts;
 
 import persons.Hero;
-
 import java.util.Arrays;
 
 public abstract class MeleeWarrior extends Hero {

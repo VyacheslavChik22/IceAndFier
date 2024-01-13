@@ -17,7 +17,6 @@ public class Arbalester extends RangedWarrior {
         super("Арбалетчик", name, 100, 15, 50, 0, new int[]{5, 10},100, 10, x, y);
 
     }
-
     public String getName(){
         return name;
     }

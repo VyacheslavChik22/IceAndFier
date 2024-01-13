@@ -13,7 +13,6 @@ public class CreatingHeroes {
     static String getRandomName() {
         return Names.values()[new Random().nextInt(Names.values().length - 1)].name();
     }
-
     static ArrayList<Hero> generatingHeroesCommands(int n, int y) {
         ArrayList<Hero> commandHeroes = new ArrayList<>();
         int rand;

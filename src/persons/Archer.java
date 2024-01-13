@@ -18,11 +18,9 @@ public class Archer extends RangedWarrior {
 
     }
 
-
     @Override
     public String toString(){
         return super.toString();
     }
-
 
 }
