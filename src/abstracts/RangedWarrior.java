@@ -38,6 +38,10 @@ public abstract class RangedWarrior extends Hero {
         return amountArrows;
     }
 
+    public void setAmountArrows(int amountArrows) {
+        this.amountArrows = amountArrows;
+    }
+
     public void assault(ArrayList<Hero> enemies) {
         Hero myEnemy = findCloseEnemies(enemies);
         if (myEnemy.getArmor() > 0) {
@@ -45,14 +49,15 @@ public abstract class RangedWarrior extends Hero {
         } else {
             myEnemy.setHealth(myEnemy.getHealth() - 1);
         }
-        System.out.println(myEnemy.getStatus() + " " + myEnemy.getName() + ": Брони осталось: " + myEnemy.getArmor()+ ", Здоровья осталось: " + myEnemy.getHealth() );
+        System.out.println(myEnemy.getStatus() + " " + myEnemy.getName() + ":, Брони осталось: " + myEnemy.getArmor()+ ", Здоровья осталось: " + myEnemy.getHealth() );
     }
     public void stepOfAction(ArrayList<Hero>enemies) {
         System.out.println(findCloseEnemies(enemies)); // ближайший противник найден!
         if (getHealth() >= 0) {                         // если жив
             if (getAmountArrows() > 0) {
-                System.out.println("Противник атакован!");// если есть стрелы
+                System.out.println("В колчане" + getAmountArrows()+" стрел. Противник атакован!");// если есть стрелы
                 assault(enemies);
+                setAmountArrows(getAmountArrows()-1);
             }
         } else {
             System.out.println("Я убит, играйте без меня");
@@ -64,5 +69,4 @@ public abstract class RangedWarrior extends Hero {
     public String toString () {
         return super.toString() + ", Урон: " + Arrays.toString(damage) + " " + ", Скрытность: " + secretiveness + ", Количество стрел: " + amountArrows;
     }
-
 }

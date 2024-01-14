@@ -27,11 +27,12 @@ public class Main {
 //        });
 //        heroesList.forEach(n -> System.out.println(n.getInitiative()));
 
-
         for (Hero heroFire : CreatingHeroes.heroesFire) {
             if (heroFire.toString().split(" ")[0].equals("Арбалетчик")) {
                 System.out.println("У арбалетчика " + ((Arbalester) heroFire).getName() + " ближайшая цель: ");
                 heroFire.stepOfAction(CreatingHeroes.heroesIce);
+                System.out.println("У арбалетчика " + ((Arbalester) heroFire).getName() + " осталось стрел: " + ((Arbalester) heroFire).getAmountArrows());
+                System.out.println();
             }
         }
     }
