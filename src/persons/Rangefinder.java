@@ -15,7 +15,6 @@ public class Rangefinder {
 
     @Override
     public String toString() {
-        return "Кординаты: " + x + " : " + y;
-
+        return x + " : " + y;
     }
 }

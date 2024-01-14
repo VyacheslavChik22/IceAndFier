@@ -16,17 +16,16 @@ public class Main {
 //        System.out.println("\tВоины льда:");
 //        CreatingHeroes.heroesIce.forEach(n -> System.out.println(n.toString()));
 
-        ArrayList<Hero> heroesList = new ArrayList<>();
-        heroesList.addAll(CreatingHeroes.heroesFire);
-        heroesList.addAll(CreatingHeroes.heroesIce);
-        heroesList.sort(new Comparator<Hero>() {
-            @Override
-            public int compare(Hero o1, Hero o2) {
-                return o2.getInitiative() - o1.getInitiative();
-            }
-        });
-
-        heroesList.forEach(n -> System.out.println(n.getInitiative()));
+//        ArrayList<Hero> heroesList = new ArrayList<>();
+//        heroesList.addAll(CreatingHeroes.heroesFire);
+//        heroesList.addAll(CreatingHeroes.heroesIce);
+//        heroesList.sort(new Comparator<Hero>() {
+//            @Override
+//            public int compare(Hero o1, Hero o2) {
+//                return o2.getInitiative() - o1.getInitiative();
+//            }
+//        });
+//        heroesList.forEach(n -> System.out.println(n.getInitiative()));
 
 
         for (Hero heroFire : CreatingHeroes.heroesFire) {
