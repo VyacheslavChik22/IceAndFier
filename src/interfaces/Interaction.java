@@ -4,5 +4,5 @@ import persons.Hero;
 
 import java.util.ArrayList;
 public interface Interaction {
-    void stepOfAction(ArrayList<Hero>enemies);
+    void stepOfAction(ArrayList<Hero>enemies,ArrayList<Hero>friends);
 }

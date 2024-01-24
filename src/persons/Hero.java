@@ -1,27 +1,52 @@
 package persons;
 
+import interfaces.Interaction;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public abstract class Hero {
+public abstract class Hero implements Interaction {
     protected String status;
     protected String name;
+    protected int manna;
+    protected int damage;
     protected int health;          // Здоровье
     protected int armor;           // Броня
-    protected int fightingSpirit;  // Боевой дух
-    protected int experience;      // Опыт
+    protected int amountArrows;    // количество стрел
     protected int initiative;
+    protected String shooting;
     public Rangefinder position;
 
-    public Hero(String status, String name, int health, int armor, int fightingSpirit, int experience, int x, int y) {
+
+    public Hero(String shooting, String status, String name, int armor, int health, int x, int y) {
+        this.shooting = shooting;
         this.status = status;
         this.name = name;
-        this.health = health;
         this.armor = armor;
-        this.fightingSpirit = fightingSpirit;
-        this.experience = experience;
+        this.health = health;
         this.position = new Rangefinder(x, y);
 
+    }
+
+    public Hero findCloseWarrior(ArrayList<Hero> enemies) {
+        Hero isEnemy = null;
+        ArrayList<Float> listPositions = new ArrayList<>();
+        enemies.forEach(n -> listPositions.add(position.rangeToEnemy(n.position)));
+        float closeEnemies = Collections.min(listPositions);
+        for (int i = 0; i < enemies.size(); i++) {
+            if (closeEnemies == position.rangeToEnemy(enemies.get(i).position)) {
+                isEnemy = enemies.get(i);
+            }
+        }
+        return isEnemy;
+    }
+
+    public int[] getCoords() {
+        return new int[]{position.x, position.y};
+    }
+    public String getShooting() {
+        return shooting;
     }
 
     public String getStatus() {
@@ -56,49 +81,40 @@ public abstract class Hero {
         this.armor = armor;
     }
 
-    public int getFightingSpirit() {
-        return fightingSpirit;
+    public int getInitiative() {
+        return initiative;
     }
 
-    public void setFightingSpirit(int fightingSpirit) {
-        this.fightingSpirit = fightingSpirit;
-    }
-
-    public int getExperience() {
-        return experience;
-    }
-
-    public void setExperience(int experience) {
-        this.experience = experience;
-    }
 
     public void setInitiative(int initiative) {
         this.initiative = initiative;
     }
 
-    public Rangefinder getPosition() {
-        return position;
+    // public Rangefinder getPosition() {
+    //     return position;
+    // }
+
+    public int getAmountArrows() {
+        return amountArrows;
     }
 
-    public void setPosition(Rangefinder position) {
-        this.position = position;
-    }
-
-    public int getInitiative() {
-        return initiative;
+    public void setAmountArrows(int amountArrows) {
+        this.amountArrows = amountArrows;
     }
 
     @Override
     public String toString() {
         return status + " " + name
                 + ", Броня: " + armor + ", Здоровье: " + health
-                + ", Боевой дух: " + fightingSpirit + ", Опыт: " + experience
                 + ", Позиция: " + position;
     }
 
-    public void stepOfAction(ArrayList<Hero> enemies) {
-        System.out.println("");
+
+    public int gethealth() {
+        return health;
     }
 
-
+//    public double[] getCoords() {
+//        return ;
+//    }
 }

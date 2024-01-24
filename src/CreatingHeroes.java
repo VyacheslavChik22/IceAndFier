@@ -7,41 +7,80 @@ import java.util.List;
 import java.util.Random;
 
 public class CreatingHeroes {
-    static ArrayList<Hero> heroesIce = new ArrayList<>();
-    static ArrayList<Hero> heroesFire = new ArrayList<>();
+    public static ArrayList<Hero> heroesIce = new ArrayList<>();
+    public static ArrayList<Hero> heroesFire = new ArrayList<>();
+    public static ArrayList<Hero> commandHeroes = new ArrayList<>();
 
     static String getRandomName() {
         return Names.values()[new Random().nextInt(Names.values().length - 1)].name();
     }
-    static ArrayList<Hero> generatingHeroesCommands(int n, int y) {
-        ArrayList<Hero> commandHeroes = new ArrayList<>();
+
+
+    static void generatingHeroesFireCommand(int n, int y) {
+
         int rand;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 11; i++) {
             rand = (int) (1 + Math.random() * 4) + n;
             switch (rand) {
                 case 1:
-                    commandHeroes.add(new Arbalester(getRandomName(), i, y));
+                    heroesFire.add(new Arbalester(getRandomName(), i, y));
                     break;
                 case 2:
-                    commandHeroes.add(new Monastic(getRandomName(), i, y));
+                    heroesFire.add(new Monastic(getRandomName(), i, y));
                     break;
                 case 3:
-                    commandHeroes.add(new Robber(getRandomName(), i, y));
+                    heroesFire.add(new Robber(getRandomName(), i, y));
                     break;
                 case 4:
-                    commandHeroes.add(new Peasant(getRandomName(), i, y));
+                    heroesFire.add(new Peasant(getRandomName(), i, y));
                     break;
                 case 5:
-                    commandHeroes.add(new Archer(getRandomName(), i, y));
+                    heroesFire.add(new Archer(getRandomName(), i, y));
                     break;
                 case 6:
-                    commandHeroes.add(new Spearman(getRandomName(), i, y));
+                    heroesFire.add(new Spearman(getRandomName(), i, y));
                     break;
                 case 7:
-                    commandHeroes.add(new Wizard(getRandomName(), i, y));
+                    heroesFire.add(new Wizard(getRandomName(), i, y));
                     break;
             }
         }
-        return commandHeroes;
+    }
+
+    static void generatingHeroesIceCommand(int n, int y) {
+
+        int rand;
+        for (int i = 1; i < 11; i++) {
+            rand = (int) (1 + Math.random() * 4) + n;
+            switch (rand) {
+                case 1:
+                    heroesIce.add(new Arbalester(getRandomName(), i, y));
+                    break;
+                case 2:
+                    heroesIce.add(new Monastic(getRandomName(), i, y));
+                    break;
+                case 3:
+                    heroesIce.add(new Robber(getRandomName(), i, y));
+                    break;
+                case 4:
+                    heroesIce.add(new Peasant(getRandomName(), i, y));
+                    break;
+                case 5:
+                    heroesIce.add(new Archer(getRandomName(), i, y));
+                    break;
+                case 6:
+                    heroesIce.add(new Spearman(getRandomName(), i, y));
+                    break;
+                case 7:
+                    heroesIce.add(new Wizard(getRandomName(), i, y));
+                    break;
+            }
+        }
+    }
+
+    static void generatAll(){
+        commandHeroes.addAll(heroesIce);
+        commandHeroes.addAll(heroesFire);
+        commandHeroes.sort((i1,i2)-> i1.getInitiative() - i2.getInitiative());
     }
 }

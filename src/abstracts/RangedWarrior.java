@@ -7,66 +7,43 @@ import java.util.Collections;
 
 //дальний бой
 public abstract class RangedWarrior extends Hero {
-    protected int[] damage;       // Наносимый урон
-    protected int amountArrows;   // количество стрел
-    protected int secretiveness; // скрытность
-
-    public RangedWarrior(String status, String name, int health, int armor, int fightingSpirit, int experience, int[]
-            damage, int amountArrows, int secretiveness, int x, int y) {
-        super(status, name, health, armor, fightingSpirit, experience, x, y);
-        this.damage = damage;
-        this.amountArrows = amountArrows;
-        this.secretiveness = secretiveness;
+    public RangedWarrior(String shooting, String status, String name, int armor, int health, int x, int y) {
+        super(shooting, status, name, armor, health, x, y);
+        this.damage = (int) (1 + Math.random() * 5);
+        this.amountArrows = 50;
         initiative = 3;
     }
 
 
-    public Hero findCloseEnemies(ArrayList<Hero> enemies) {
-        Hero isEnemy = null;
-        ArrayList<Float> listPositions = new ArrayList<>();
-        enemies.forEach(n -> listPositions.add(position.rangeToEnemy(n.position)));
-        float closeEnemies = Collections.min(listPositions);
-        for (int i = 0; i < enemies.size(); i++) {
-            if (closeEnemies == position.rangeToEnemy(enemies.get(i).position)) {
-                isEnemy = enemies.get(i);
-            }
-        }
-        return isEnemy;
-    }
-
-    public int getAmountArrows() {
-        return amountArrows;
-    }
-
-    public void setAmountArrows(int amountArrows) {
-        this.amountArrows = amountArrows;
-    }
-
     public void assault(ArrayList<Hero> enemies) {
-        Hero myEnemy = findCloseEnemies(enemies);
+        Hero myEnemy = findCloseWarrior(enemies);
         if (myEnemy.getArmor() > 0) {
-            myEnemy.setArmor(getArmor() - 1);
+            myEnemy.setArmor(getArmor() - damage);
         } else {
-            myEnemy.setHealth(myEnemy.getHealth() - 1);
+            myEnemy.setHealth(myEnemy.getHealth() - (damage + (int) (1 + Math.random() * 10)));
         }
-        System.out.println(myEnemy.getStatus() + " " + myEnemy.getName() + ":, Брони осталось: " + myEnemy.getArmor()+ ", Здоровья осталось: " + myEnemy.getHealth() );
+        System.out.println(myEnemy.getStatus() + " " + myEnemy.getName() + ": Брони осталось: " + myEnemy.getArmor() + ", Здоровья осталось: " + myEnemy.getHealth());
     }
-    public void stepOfAction(ArrayList<Hero>enemies) {
-        System.out.println(findCloseEnemies(enemies)); // ближайший противник найден!
+
+   @Override
+   public void stepOfAction(ArrayList<Hero> enemies,ArrayList<Hero> friends) {
+        System.out.println(findCloseWarrior(enemies)); // ближайший противник найден!
         if (getHealth() >= 0) {                         // если жив
             if (getAmountArrows() > 0) {
-                System.out.println("В колчане" + getAmountArrows()+" стрел. Противник атакован!");// если есть стрелы
+                System.out.println("Противник атакован!");// если есть стрелы
                 assault(enemies);
                 setAmountArrows(getAmountArrows()-1);
+            } else {
+                System.out.println("Стрелы, стрелы давай!");
             }
         } else {
+            setHealth(0);
             System.out.println("Я убит, играйте без меня");
         }
     }
 
-
     @Override
-    public String toString () {
-        return super.toString() + ", Урон: " + Arrays.toString(damage) + " " + ", Скрытность: " + secretiveness + ", Количество стрел: " + amountArrows;
+    public String toString() {
+        return super.toString() + ", Урон: " + damage + ", Количество стрел: " + amountArrows;
     }
 }

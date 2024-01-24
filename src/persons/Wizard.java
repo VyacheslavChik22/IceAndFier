@@ -9,9 +9,9 @@ import interfaces.*;
 public class Wizard extends WarriorOfMagic {
 
     public Wizard(String name, int x, int y) {
-        super("Колдун ", name, 100,15, 50, 5, 50, x, y);
-
+        super("Маг", "Колдун", name, 15, 50, x, y);
     }
+
     @Override
     public String toString() {
         return super.toString();

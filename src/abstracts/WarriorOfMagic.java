@@ -1,12 +1,23 @@
 package abstracts;
 
 import persons.Hero;
-public class WarriorOfMagic extends Hero {
-    int manna;
 
-    public WarriorOfMagic(String status, String name, int health, int armor, int fightingSpirit, int experience, int manna, int x, int y) {
-        super(status, name, health, armor, fightingSpirit, experience, x, y);
-        this.manna = manna;
+import java.util.ArrayList;
+
+public class WarriorOfMagic extends Hero {
+    public WarriorOfMagic(String shooting, String status, String name, int armor, int health, int x, int y) {
+        super(shooting, status, name, armor, health, x, y);
+        this.manna = 30;
         initiative = 1;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Манна: " + manna;
+    }
+
+    @Override
+    public void stepOfAction(ArrayList<Hero> enemies, ArrayList<Hero> friends) {
+
     }
 }
