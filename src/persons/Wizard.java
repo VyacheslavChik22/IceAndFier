@@ -9,7 +9,7 @@ import interfaces.*;
 public class Wizard extends WarriorOfMagic {
 
     public Wizard(String name, int x, int y) {
-        super("Маг", "Колдун", name, 15, 50, x, y);
+        super("Маг", "Колдун", name, 10, 10, x, y);
     }
 
     @Override

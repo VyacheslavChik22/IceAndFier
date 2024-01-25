@@ -9,7 +9,7 @@ import java.util.ArrayList;
 //бьёт оружием ближнего боя, оружие неограниченно, ход не ограничен
 public class Spearman extends MeleeWarrior {
     public Spearman(String name,  int x, int y) {
-        super("Пехота","Копейщик", name, 15, 100, x, y);
+        super("Пехота","Копейщик", name, 10, 10, x, y);
         this.damage = (int)(Math.random()*3);
     }
 

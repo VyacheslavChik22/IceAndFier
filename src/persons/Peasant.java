@@ -8,11 +8,10 @@ import java.util.ArrayList;
 //Подбрасывает стрелы снайперам и арбалетчикам
 public class Peasant extends Hero {
     public Peasant(String name, int x, int y) {
-        super("", "Крестьянин", name, 0, 15, x, y);
+        super("", "Крестьянин", name, 0, 10, x, y);
         this.amountArrows = (int) (2 + Math.random() * 8);
         initiative = 0;
     }
-
 
     public void giveAnArrow(ArrayList<Hero> mine) {
         for (int i = 0; i < mine.size(); i++) {
@@ -25,8 +24,6 @@ public class Peasant extends Hero {
             }
         }
     }
-
-
 
 
     @Override

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Robber extends MeleeWarrior {
 
     public Robber(String name, int x, int y) {
-        super("Пехота","Разбойник", name, 15, 100, x, y);
+        super("Пехота","Разбойник", name, 10, 10, x, y);
     }
 
 }

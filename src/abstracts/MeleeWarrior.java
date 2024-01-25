@@ -9,22 +9,30 @@ import java.util.Arrays;
 public abstract class MeleeWarrior extends Hero {
     public MeleeWarrior(String shooting, String status, String name, int armor, int health, int x, int y) {
         super(shooting, status, name, armor, health, x, y);
-        this.damage = (int) (Math.random() * 2);
+        this.damage = (int) (1 +Math.random() * 5);
         initiative = 2;
 
     }
 
     @Override
     public void stepOfAction(ArrayList<Hero> enemy, ArrayList<Hero> friends) {
-        if(this.gethealth() <= 0)return;
-        Hero hero = this.findCloseWarrior(enemy);
-        if (this.position.rangeToEnemy(hero.position) < 2) {
-//ehjy
-            return;
+        if (this.getHealth() <= 0) return;
+        Hero myEnemy = this.findCloseWarrior(enemy);
+        if (this.position.rangeToEnemy(myEnemy.position) < 2) {
+            if (myEnemy.getArmor() > 0) {
+                myEnemy.setArmor(getArmor() - damage);
+            } else {
+                myEnemy.setArmor(0);
+                if(myEnemy.getHealth()>0){
+                myEnemy.setHealth(myEnemy.getHealth() - damage );
+                }else{
+                    myEnemy.setHealth(0);
+                }
+            }
         }
         Rangefinder tmp = new Rangefinder(position.getX(), position.getY());
 
-        Rangefinder delta = this.position.getDeltas(hero.position);
+        Rangefinder delta = this.position.getDeltas(myEnemy.position);
         if (Math.abs(delta.getX()) > Math.abs(delta.getY())) {
             if (delta.getX() > 0) {
                 tmp.setX(position.getX() - 1);

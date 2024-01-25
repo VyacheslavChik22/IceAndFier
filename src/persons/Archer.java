@@ -12,17 +12,8 @@ import java.util.List;
 //Стрелы заканчиваются(имеет определенный запас)
 public class Archer extends RangedWarrior {
     public Archer(String name, int x, int y) {
-        super("Стрелок","Лучник", name, 15, 100, x, y);
+        super("Стрелок","Лучник", name, 10, 10, x, y);
     }
 
-//    public Archer(String name, int x, int y) {
-//        super(, name, 100, 15, 50, 0, 100, x, y);
-//
-//    }
-
-    public String getName(){
-        return name;
-    }
 
 }
- ход пехоты

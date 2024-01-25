@@ -45,16 +45,13 @@ public abstract class Hero implements Interaction {
     public int[] getCoords() {
         return new int[]{position.x, position.y};
     }
+
     public String getShooting() {
         return shooting;
     }
 
     public String getStatus() {
         return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public String getName() {
@@ -78,21 +75,12 @@ public abstract class Hero implements Interaction {
     }
 
     public void setArmor(int armor) {
-        this.armor = armor;
+            this.armor = armor;
     }
 
     public int getInitiative() {
         return initiative;
     }
-
-
-    public void setInitiative(int initiative) {
-        this.initiative = initiative;
-    }
-
-    // public Rangefinder getPosition() {
-    //     return position;
-    // }
 
     public int getAmountArrows() {
         return amountArrows;
@@ -109,12 +97,4 @@ public abstract class Hero implements Interaction {
                 + ", Позиция: " + position;
     }
 
-
-    public int gethealth() {
-        return health;
-    }
-
-//    public double[] getCoords() {
-//        return ;
-//    }
 }

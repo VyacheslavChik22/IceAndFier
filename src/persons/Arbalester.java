@@ -13,11 +13,7 @@ import java.util.ArrayList;
 public class Arbalester extends RangedWarrior {
 
     public Arbalester(String name, int x, int y) {
-        super("Стреляющий","Арбалетчик", name, 15, 100, x, y);
-    }
-
-    public String getName(){
-        return name;
+        super("Стреляющий","Арбалетчик", name, 10, 10, x, y);
     }
 
 }

@@ -13,22 +13,6 @@ public class Main {
         CreatingHeroes.generatAll();
 
 
-//        System.out.println("\tВоины огня:");
-//        CreatingHeroes.heroesFire.forEach(n -> System.out.println(n.toString()));
-//        System.out.println("\tВоины льда:");
-//        CreatingHeroes.heroesIce.forEach(n -> System.out.println(n.toString()));
-
-//        ArrayList<Hero> heroesList = new ArrayList<>();
-//        heroesList.addAll(CreatingHeroes.heroesFire);
-//        heroesList.addAll(CreatingHeroes.heroesIce);
-//        heroesList.sort(new Comparator<Hero>() {
-//            @Override
-//            public int compare(Hero o1, Hero o2) {
-//                return o2.getInitiative() - o1.getInitiative();
-//            }
-//        });
-//        heroesList.forEach(n -> System.out.println(n.getInitiative()));
-
 
         Scanner input = new Scanner(System.in);
         while (true) {
@@ -45,14 +29,5 @@ public class Main {
 
         }
 
-
-//        for (Hero heroFire : CreatingHeroes.heroesFire) {
-//            if (heroFire.toString().split(" ")[0].equals("Арбалетчик")) {
-//                System.out.println("У арбалетчика " + ((Arbalester) heroFire).getName() + " Стрел: " + ((Arbalester) heroFire).getAmountArrows() + ", ближайшая цель: ");
-//                heroFire.stepOfAction(CreatingHeroes.heroesIce);
-//                System.out.println("У арбалетчика " + ((Arbalester) heroFire).getName() + " осталось стрел: " + ((Arbalester) heroFire).getAmountArrows());
-//                System.out.println();
-//            }
-//        }
     }
 }

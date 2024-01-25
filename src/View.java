@@ -29,7 +29,7 @@ public class View {
         String out = "| ";
         for (Hero human: CreatingHeroes.commandHeroes) {
             if (human.getCoords()[0] == x && human.getCoords()[1] == y){
-                if (human.gethealth() == 0) {
+                if (human.getHealth() == 0) {
                     out = "|" + (AnsiColors.ANSI_RED + human.getStatus().charAt(0) + AnsiColors.ANSI_RESET);
                     break;
                 }
