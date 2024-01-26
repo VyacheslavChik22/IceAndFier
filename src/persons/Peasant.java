@@ -8,23 +8,28 @@ import java.util.ArrayList;
 //Подбрасывает стрелы снайперам и арбалетчикам
 public class Peasant extends Hero {
     public Peasant(String name, int x, int y) {
-        super("", "Крестьянин", name, 0, 10, x, y);
+        super("", "Холоп", name, 0, 10, x, y);
         this.amountArrows = (int) (2 + Math.random() * 8);
         initiative = 0;
     }
 
     public void giveAnArrow(ArrayList<Hero> mine) {
-        for (int i = 0; i < mine.size(); i++) {
-            if (mine.get(i).getShooting().equals("Стреляющий")) {
-                if (mine.get(i).getHealth() >= 0 && mine.get(i).getAmountArrows() == 0) { //если свой жив и без стрел
-                    setAmountArrows(getAmountArrows() - 1);
-                    mine.get(i).setAmountArrows(mine.get(i).getAmountArrows() + 1);
-                    break;
+        if (getHealth() >= 0 && getAmountArrows() > 0) {
+            for (Hero hero : mine) {
+                if (hero.getShooting().equals("Стреляющий")) {
+                    if (hero.getHealth() >= 0 && hero.getAmountArrows() == 0) { //если свой жив и без стрел
+                        int suplly = (int) (1 + Math.random() * 4);
+                        setAmountArrows(suplly);
+                        hero.setAmountArrows(suplly);
+                        break;
+                    }
                 }
             }
         }
+        if (getHealth() >= 0 && getAmountArrows() == 0) {
+            setAmountArrows((int) (4 + Math.random() * 1));
+        }
     }
-
 
     @Override
     public String toString() {

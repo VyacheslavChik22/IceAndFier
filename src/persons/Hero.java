@@ -90,6 +90,14 @@ public abstract class Hero implements Interaction {
         this.amountArrows = amountArrows;
     }
 
+    public int getManna() {
+        return manna;
+    }
+
+    public void setManna(int manna) {
+        this.manna = manna;
+    }
+
     @Override
     public String toString() {
         return status + " " + name

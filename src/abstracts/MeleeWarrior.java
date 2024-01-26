@@ -9,7 +9,7 @@ import java.util.Arrays;
 public abstract class MeleeWarrior extends Hero {
     public MeleeWarrior(String shooting, String status, String name, int armor, int health, int x, int y) {
         super(shooting, status, name, armor, health, x, y);
-        this.damage = (int) (1 +Math.random() * 5);
+        this.damage = (int) (1 + Math.random() * 5);
         initiative = 2;
 
     }
@@ -23,9 +23,9 @@ public abstract class MeleeWarrior extends Hero {
                 myEnemy.setArmor(getArmor() - damage);
             } else {
                 myEnemy.setArmor(0);
-                if(myEnemy.getHealth()>0){
-                myEnemy.setHealth(myEnemy.getHealth() - damage );
-                }else{
+                if (myEnemy.getHealth() > 0) {
+                    myEnemy.setHealth(myEnemy.getHealth() - damage);
+                } else {
                     myEnemy.setHealth(0);
                 }
             }
@@ -36,11 +36,9 @@ public abstract class MeleeWarrior extends Hero {
         if (Math.abs(delta.getX()) > Math.abs(delta.getY())) {
             if (delta.getX() > 0) {
                 tmp.setX(position.getX() - 1);
-
             } else {
                 tmp.setX(position.getX() + 1);
             }
-
         } else {
             if (delta.getY() > 0) {
                 tmp.setY(position.getY() - 1);
