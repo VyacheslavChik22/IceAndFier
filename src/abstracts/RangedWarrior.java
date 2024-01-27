@@ -15,7 +15,6 @@ public abstract class RangedWarrior extends Hero {
         initiative = 3;
     }
 
-
     public void assault(ArrayList<Hero> enemies) {
         Hero myEnemy = findCloseWarrior(enemies);
         if (myEnemy.getArmor() > 0) {

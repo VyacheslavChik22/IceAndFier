@@ -11,13 +11,12 @@ public abstract class Hero implements Interaction {
     protected String name;
     protected int manna;
     protected int damage;
-    protected int health;          // Здоровье
-    protected int armor;           // Броня
-    protected int amountArrows;    // количество стрел
+    protected int health;
+    protected int armor;
+    protected int amountArrows;
     protected int initiative;
     protected String shooting;
     public Rangefinder position;
-
 
     public Hero(String shooting, String status, String name, int armor, int health, int x, int y) {
         this.shooting = shooting;
